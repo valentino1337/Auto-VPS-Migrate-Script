@@ -5,4 +5,4 @@ apt-get update
 apt-get upgrade
 apt-get install rsync
 
-rsync -aHAXSz --delete --info=progress2 --numeric-ids -e "ssh" --rsync-path="rsync" --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/etc/fstab","/etc/udev/rules.d/*","/etc/network/*","/lib/modprobe.d/*"} root@$1:/* /
+rsync -auHxvz --numeric-ids="ssh" --exclude=/etc/fstab --exclude=/etc/network/* --exclude=/proc/* --exclude=/tmp/* --exclude=/sys/* --exclude=/dev/* --exclude=/mnt/* --exclude=/boot/* --exclude=/root/* --progress root@$1:/* /
